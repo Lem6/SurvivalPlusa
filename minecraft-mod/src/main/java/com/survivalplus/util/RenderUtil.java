@@ -1,7 +1,13 @@
 package com.survivalplus.util;
 
 import com.mojang.blaze3d.systems.RenderSystem;
-import net.minecraft.client.render.*;
+import net.minecraft.client.gl.ShaderProgramKeys;
+import net.minecraft.client.render.BufferBuilder;
+import net.minecraft.client.render.BufferRenderer;
+import net.minecraft.client.render.BuiltBuffer;
+import net.minecraft.client.render.Tessellator;
+import net.minecraft.client.render.VertexFormat;
+import net.minecraft.client.render.VertexFormats;
 import org.joml.Matrix4f;
 
 public class RenderUtil {
@@ -59,7 +65,7 @@ public class RenderUtil {
         return tess.begin(VertexFormat.DrawMode.LINES, VertexFormats.POSITION_COLOR);
     }
 
-    public static void endBoxRendering(BufferBuilder.BuiltBuffer built) {
+    public static void endBoxRendering(BuiltBuffer built) {
         BufferRenderer.drawWithGlobalProgram(built);
         RenderSystem.lineWidth(1.0f);
         RenderSystem.enableDepthTest();
